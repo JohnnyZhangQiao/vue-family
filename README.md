@@ -77,13 +77,15 @@ git clone https://github.com/JohnnyZhangQiao/vue-family.gi
 
 
 #### 3.安装node.js(如果您已经安装nodejs和配置好npm环境，请直接到第5步)
-```下载对应你系统的Node.js版本:https://nodejs.org/en/download/
+```
+下载对应你系统的Node.js版本:https://nodejs.org/en/download/
 安装完成后在命令窗口输入：node -v 和 npm -v，有版本显示即为安装成功
 ```
 
 
 #### 4.安装淘宝npm镜像cnpm
-```安装前先介绍下npm与cnpm：
+```
+安装前先介绍下npm与cnpm：
 npm：（node package manager）nodejs的包管理器，用于node插件管理（包括安装、卸载、管理依赖等）；
 cnpm：因为npm安装插件是从国外服务器下载，受网络影响大，可能出现异常，如果npm的服务器在中国就好了，
 所以我们乐于分享的淘宝团队干了这事。来自官网：“这是一个完整 npmjs.org 镜像，你可以用此代替官方版本(只读)，
@@ -98,11 +100,13 @@ npm install -g cnpm –registry=https://registry.npm.taobao.org
 
 
 #### 5.安装项目依赖包
-```进入下载后的demo文件根目录，输入：cnpm install，静待安装完成。
+```
+进入下载后的demo文件根目录，输入：cnpm install，静待安装完成。
 ```
 
 
 #### 6.运行项目
-```进入下载后的demo文件根目录，输入：npm run dev后，在浏览器自动弹出访问页面：http://localhost:8080/
+```
+进入下载后的demo文件根目录，输入：npm run dev后，在浏览器自动弹出访问页面：http://localhost:8080/
 因为是移动端的spa项目，请把开启您的浏览器调试，换成手机调试模式
 ```
