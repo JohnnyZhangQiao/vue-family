@@ -103,6 +103,6 @@ npm install -g cnpm –registry=https://registry.npm.taobao.org
 
 
 #### 6.运行项目
-```进入下载后的demo文件根目录，输入：npm run dev后，在浏览器自动弹出访问页面：http://localhost:8080/```
-```因为是移动端的spa项目，请把开启您的浏览器调试，换成手机调试模式
+```进入下载后的demo文件根目录，输入：npm run dev后，在浏览器自动弹出访问页面：http://localhost:8080/
+因为是移动端的spa项目，请把开启您的浏览器调试，换成手机调试模式
 ```
