@@ -2,7 +2,7 @@
 	<div class="app-footer">
 		<ul>
 			<li>
-				<router-link to="/" :class="[checkFooterItem=='push'?'item-active':'']">
+				<router-link to="/" :class="[checkFooterItem=='push'?'item-active':'']" >
 					<p class="fa fa-star-o footer-icon"></p>
 					<p class="footer-content">推荐</p>
 				</router-link>

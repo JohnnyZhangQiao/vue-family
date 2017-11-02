@@ -19,7 +19,9 @@ export default {
   name: 'pushPage',
   components:{
   },
-  mounted(){
+  created(){
+  	//派遣事件到vuex执行相应改变
+  	this.$store.dispatch('inPush')
     let that = this;
 
     //vue-resource请求数据
@@ -38,7 +40,7 @@ export default {
       
     }
   },
-  created() {
+  activated() {
   	//派遣事件到vuex执行相应改变
   	this.$store.dispatch('inPush')
   },

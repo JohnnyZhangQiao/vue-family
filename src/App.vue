@@ -1,7 +1,12 @@
 <template>
   <div id="app">
   	<app-header></app-header>
-    <router-view></router-view>
+    <keep-alive>
+      <!-- 缓存组件 -->
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <!-- 不缓存组件 -->
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
     <app-footer></app-footer>
   </div>
 </template>

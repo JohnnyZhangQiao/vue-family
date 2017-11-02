@@ -21,7 +21,10 @@ export default new Router({
     {
       path: '/push',
       name: '推荐',
-      component: pushPage
+      component: pushPage,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/local',
