@@ -32,7 +32,7 @@
 
 > [vuex]  
 
-> [vue-resource]
+> [axios]
 
 > [webpack]
 
