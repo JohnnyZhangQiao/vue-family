@@ -15,6 +15,8 @@
 	</div>
 </template>
 <script>
+import api from '@/fetch/api'
+
 export default {
   name: 'pushPage',
   components:{
@@ -24,21 +26,20 @@ export default {
   	this.$store.dispatch('inPush')
     let that = this;
 
-    //vue-resource请求数据
-    this.$http.post(
-    	this.apiUrl,{
-    		showapi_appid:this.showapi_appid,
-    		showapi_sign:this.showapi_sign,
-    		typeId:this.typeId,
-    		space:this.space
-    	},
-    	{emulateJSON:true}
-    )
-    .then((res) => {
-        that.data = res.body.showapi_res_body.pagebean.contentlist;
-    }),function(error){
-      
-    }
+    //axios请求数据
+    api.Push('post', this.apiUrl, {
+		showapi_appid:this.showapi_appid,
+		showapi_sign:this.showapi_sign,
+		typeId:this.typeId,
+		space:this.space
+	})
+	.then(res => {
+		that.data = res.showapi_res_body.pagebean.contentlist;
+	})
+	.catch(error => {
+		console.log(error)
+	});
+
   },
   activated() {
   	//派遣事件到vuex执行相应改变
@@ -47,8 +48,8 @@ export default {
   data () {
     return {
        apiUrl:"http://route.showapi.com/254-1",
-       showapi_sign:"096d1aafcdf9431aa1fa3ab7034369dd",
-       showapi_appid:"49036",
+       showapi_sign:"414254414fbe470eb92f0972f805d568",
+       showapi_appid:"48654",
        typeId:1,
        space:'day',
        data:'',
