@@ -25,7 +25,6 @@ export default {
   	//派遣事件到vuex执行相应改变
   	this.$store.dispatch('inPush')
     let that = this;
-
     //axios请求数据
     api.Push('post', this.apiUrl, {
 		showapi_appid:this.showapi_appid,
@@ -43,7 +42,8 @@ export default {
   },
   activated() {
   	//派遣事件到vuex执行相应改变
-  	this.$store.dispatch('inPush')
+  	this.$store.dispatch('inPush');
+    console.log(this.$route.params.userName);
   },
   data () {
     return {

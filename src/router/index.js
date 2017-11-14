@@ -15,12 +15,12 @@ export default new Router({
     {
       path: '/',
       redirect: '/push', //重定向第一个显示页面
-      name: '首页',
+      name: 'index',
       component: {}
     },
     {
       path: '/push',
-      name: '推荐',
+      name: 'push',
       component: pushPage,
       meta: {
         keepAlive: true
@@ -28,17 +28,17 @@ export default new Router({
     },
     {
       path: '/local',
-      name: '本地',
+      name: 'local',
       component: localPage
     },
     {
       path: '/search',
-      name: '发现',
+      name: 'search',
       component: searchPage
     },
     {
       path: '/my',
-      name: '我的',
+      name: 'my',
       component: myPage
     }
   ]

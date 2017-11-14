@@ -2,25 +2,25 @@
 	<div class="app-footer">
 		<ul>
 			<li>
-				<router-link to="/" :class="[checkFooterItem=='push'?'item-active':'']" >
+				<router-link :to="{name:'push', params:{userName:'Johnny'}}" exact>
 					<p class="fa fa-star-o footer-icon"></p>
 					<p class="footer-content">推荐</p>
 				</router-link>
 			</li>
 			<li>
-				<router-link to="/local" :class="[checkFooterItem=='local'?'item-active':'']">
+				<router-link :to="{name:'local'}" exact>
 					<p class="fa fa-map-marker footer-icon"></p>
 					<p class="footer-content">本地</p>
 				</router-link>
 			</li>
 			<li>
-				<router-link to="/search" :class="[checkFooterItem=='search'?'item-active':'']">
+				<router-link :to="{name:'search'}" exact>
 					<p class="fa fa-location-arrow footer-icon"></p>
 					<p class="footer-content">发现</p>
 				</router-link>
 			</li>
 			<li>
-				<router-link to="/my" :class="[checkFooterItem=='my'?'item-active':'']">
+				<router-link :to="{name:'my'}" exact>
 					<p class="fa fa-user-o footer-icon"></p>
 					<p class="footer-content">我的</p>
 				</router-link>
@@ -82,7 +82,7 @@ export default {
 			height: 15px;
 			font-size: 12px;
 		}
-		.item-active {
+		.router-link-active {
 			color: #5ed063;
 		}
 	}
