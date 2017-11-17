@@ -36,11 +36,25 @@ export function fetch(type, url, params) {
     })
 }
 
+export function fetchAll(arr) {
+    return new Promise((resolve, reject) => {
+        console.log(...arr);
+        axios.all(...arr)
+        .then(axios.spread(function (acct, perms) {
+            // 两个请求现在都执行完成
+        }));
+    })
+}
+
 export default {
     /**
      * 抓取首页热点
      */
     Push(type, url, params) {
         return fetch(type, url, params)
+    },
+
+    PushAll(arr) {
+        return fetchAll(arr);
     }
 }
