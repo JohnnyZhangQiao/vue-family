@@ -2,13 +2,13 @@
 	<div>
 		<div class="push-item" v-for="item in data">
 	    	<div class="push-item-title">
-	    		<p>热榜指数：{{item.influence}}</p>
-	    		<p>{{item.date}}</p>
+	    		<p>来源：{{item.source}}</p>
+	    		<p>{{item.pubDate}}</p>
 	    	</div>
-	    	<a :href="item.url">
+	    	<a :href="item.link">
 		    	<div class="push-item-content">
-					<p><img class="item-img" :src="item.img"></p>
-					<p>{{item.newinfo}}</p>
+					<p>{{item.title}}</p>
+					<p>{{item.desc}}</p>
 		    	</div>
 	    	</a>
 	    </div>
@@ -29,8 +29,7 @@ export default {
     api.Push('post', this.apiUrl, {
 		showapi_appid:this.showapi_appid,
 		showapi_sign:this.showapi_sign,
-		typeId:this.typeId,
-		space:this.space
+		needAllList:this.needAllList,
 	})
 	.then(res => {
 		that.data = res.showapi_res_body.pagebean.contentlist;
@@ -47,11 +46,10 @@ export default {
   },
   data () {
     return {
-       apiUrl:"http://route.showapi.com/254-1",
+       apiUrl:"http://route.showapi.com/109-35",
        showapi_sign:"414254414fbe470eb92f0972f805d568",
        showapi_appid:"48654",
-       typeId:1,
-       space:'day',
+       needAllList:0,
        data:'',
     }
   },
@@ -77,35 +75,33 @@ export default {
 			color: #999;
 		}
 		>p:nth-child(1) {
-			width: 30%;
+			width: 40%;
 		}
 		>p:nth-child(2) {
-			width: 70%;
+			width: 60%;
 			text-align: right;
 		}
 	}
 	.push-item-content {
-		width: 100%;
-		height: 100px;
-		>p {
-			display: inline-block;
-		}
-		>p:nth-child(1) {
-			width: 30%;
-			>.item-img {
-				margin: 10px auto;
-				height: 80px;
-			}
-		}
-		>p:nth-child(2) {
-			margin: 10px 0;
-			padding-left: 10px;
-			width: 70%;
-		    height: 80px;
-		    letter-spacing: 1px;
-		    font-size: 14px;
-		    overflow: hidden;
-		}
+	    width: 100%;
+	    height: 100px;
+	    >p:nth-child(1) {
+	      margin: 10px 0;
+	      width: 100%;
+	      font-size: 16px;
+	      color: #000;
+	      text-overflow: ellipsis;
+	      overflow: hidden;
+	      white-space: nowrap;
+	    }
+	    >p:nth-child(2) {
+	      width: 100%;
+	      height: 60px;
+	      letter-spacing: 1px;
+	      font-size: 14px;
+	      overflow: hidden;
+	      color: #999;
+	    }
 	}
 }
 </style>

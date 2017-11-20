@@ -29,7 +29,10 @@ export default new Router({
     {
       path: '/local',
       name: 'local',
-      component: localPage
+      component: localPage,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/search',
