@@ -13,20 +13,23 @@ export default new Vuex.Store({
   //应将所有的逻辑处理包含在mutations方法里面
   mutations : {
     IN_PUSH(state) {
-      state.footerFlag = 'push';
+      state.footerFlag = 'index/push';
       state.title = '推荐';
     },
     IN_LOCAL(state) {
-      state.footerFlag = 'local'
+      state.footerFlag = 'index/local'
       state.title = '本地';
     },
     IN_SEARCH(state) {
-      state.footerFlag = 'search'
+      state.footerFlag = 'index/search'
       state.title = '发现';
     },
     IN_MY(state) {
-      state.footerFlag = 'my'
+      state.footerFlag = 'index/my'
       state.title = '我的';
+    },
+    IN_INTERESTING(state) {
+      state.title = '发现有趣';
     }
   },
 
@@ -43,6 +46,9 @@ export default new Vuex.Store({
     },
     inMy({commit}) {
       commit('IN_MY')
+    },
+    inInteresting({commit}) {
+      commit('IN_INTERESTING')
     }
   }
 })
