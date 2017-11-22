@@ -32,7 +32,11 @@ export default {
   components:{
   },
   created() {
-  	this.$store.dispatch('inSearch')
+  	this.$store.dispatch('inSearch');
+    this.$store.dispatch('setLoading',{loading:true});
+    setTimeout(function(){
+      this.$store.dispatch('setLoading',{loading:false});
+    }.bind(this),2000);
   },
   data() {
   	return {

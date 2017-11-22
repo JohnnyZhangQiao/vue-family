@@ -6,12 +6,16 @@ export default new Vuex.Store({
   //state为vuex的全局变量，用于组件间通信
   state : {
     title: '模块标题',
-    footerFlag: ''
+    footerFlag: '',
+    loading: false,
   },
 
   //在vue中，The only way to actually change state in a Vuex store is by committing a mutation
   //应将所有的逻辑处理包含在mutations方法里面
   mutations : {
+    SET_LOADING(state,obj) {
+      state.loading = obj.loading;
+    },
     IN_PUSH(state) {
       state.footerFlag = 'index/push';
       state.title = '推荐';
@@ -35,6 +39,9 @@ export default new Vuex.Store({
 
   //action负责接收从各组件dispatch过来的动作，识别后提交到相应的mutation改变state
   actions : {
+    setLoading({commit},obj) {
+      commit('SET_LOADING',obj)
+    },
     inPush({commit}) {
       commit('IN_PUSH')
     },

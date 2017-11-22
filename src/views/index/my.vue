@@ -10,6 +10,8 @@ export default {
   },
   created() {
   	this.$store.dispatch('inMy')
+  	
+    console.log(this.$store.state.loading);
   }
 }
 </script>
