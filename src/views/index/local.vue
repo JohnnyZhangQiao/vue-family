@@ -57,6 +57,7 @@ export default {
     },
 
     getLocalNews: function() { //获取地区新闻
+      this.$store.dispatch('setLoading',{loading:true});
       let that = this;
       return (
         api.Push('post', this.apiUrl, {
@@ -66,6 +67,7 @@ export default {
         })
         .then(res => {
           that.data = res.showapi_res_body.pagebean.contentlist;
+          this.$store.dispatch('setLoading',{loading:false});
         })
       )
     },

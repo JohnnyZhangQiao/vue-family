@@ -24,6 +24,7 @@ export default {
   created(){
   	//派遣事件到vuex执行相应改变
   	this.$store.dispatch('inPush')
+    this.$store.dispatch('setLoading',{loading:true});
     let that = this;
     //axios请求数据
     api.Push('post', this.apiUrl, {
@@ -33,6 +34,7 @@ export default {
 	})
 	.then(res => {
 		that.data = res.showapi_res_body.pagebean.contentlist;
+      	this.$store.dispatch('setLoading',{loading:false});
 	})
 	.catch(error => {
 		console.log(error)
