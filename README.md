@@ -1,4 +1,4 @@
-# vue+webpack+vue-router+vuex+vue-resource简单实例
+# vue+webpack+vue-router+vuex+axios简单实例
   
 > github地址 https://github.com/JohnnyZhangQiao/vue-family
 
@@ -32,7 +32,7 @@
 
 > [vuex]  
 
-> [vue-resource]
+> [axios]
 
 > [webpack]
 
