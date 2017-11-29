@@ -70,7 +70,7 @@
 
 #### 1.git clone安装
 ```shell
-git clone https://github.com/JohnnyZhangQiao/vue-family.gi
+git clone https://github.com/JohnnyZhangQiao/vue-family.git
 ```
 
 #### 2.下载压缩包安装
