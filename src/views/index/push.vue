@@ -1,5 +1,10 @@
 <template>
-	<div>
+	<div
+		@touchstart="$refs.slideUpdate.pullGet($event)" 
+		@touchmove="$refs.slideUpdate.pullCount($event)" 
+		@touchend="$refs.slideUpdate.pullUpdate(pushData,$event)"
+	>
+		<slide-update ref="slideUpdate"></slide-update>
 		<div class="push-item" v-for="item in data">
 	    	<div class="push-item-title">
 	    		<p>来源：{{item.source}}</p>
@@ -16,30 +21,17 @@
 </template>
 <script>
 import api from '@/fetch/api'
+import SlideUpdate from '@/components/slideUpdate.vue'
 
 export default {
   name: 'pushPage',
   components:{
+	SlideUpdate
   },
   created(){
   	//派遣事件到vuex执行相应改变
   	this.$store.dispatch('inPush')
-    this.$store.dispatch('setLoading',{loading:true});
-    let that = this;
-    //axios请求数据
-    api.Push('post', this.apiUrl, {
-		showapi_appid:this.showapi_appid,
-		showapi_sign:this.showapi_sign,
-		needAllList:this.needAllList,
-	})
-	.then(res => {
-		that.data = res.showapi_res_body.pagebean.contentlist;
-      	this.$store.dispatch('setLoading',{loading:false});
-	})
-	.catch(error => {
-		console.log(error)
-	});
-
+  	this.pushData()
   },
   activated() {
   	//派遣事件到vuex执行相应改变
@@ -55,6 +47,42 @@ export default {
        data:'',
     }
   },
+  methods : {
+  	pushData: function() {
+  		this.$store.dispatch('setLoading',{loading:true});
+	    let that = this;
+	    //axios请求数据
+	    api.Push('post', this.apiUrl, {
+			showapi_appid:this.showapi_appid,
+			showapi_sign:this.showapi_sign,
+			needAllList:this.needAllList,
+		})
+		.then(res => {
+			that.data = res.showapi_res_body.pagebean.contentlist;
+	      	this.$store.dispatch('setLoading',{loading:false});
+		})
+		.catch(error => {
+			console.log(error)
+		});
+  	},
+  	updatePush: function() {
+		this.$store.dispatch('setLoading',{loading:true});
+		let that = this;
+		//axios请求数据
+		api.Push('post', this.apiUrl, {
+			showapi_appid:this.showapi_appid,
+			showapi_sign:this.showapi_sign,
+			needAllList:this.needAllList,
+		})
+		.then(res => {
+			that.data = res.showapi_res_body.pagebean.contentlist;
+		  	this.$store.dispatch('setLoading',{loading:false});
+		})
+		.catch(error => {
+			console.log(error)
+		});
+    }
+  }
 }
 </script>
 <style scoped lang="less">

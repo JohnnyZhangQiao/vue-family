@@ -1,10 +1,5 @@
 <template>
-  <div class="search-main" 
-      @touchstart="$refs.slideUpdate.pullGet($event)" 
-      @touchmove="$refs.slideUpdate.pullCount($event)" 
-      @touchend="$refs.slideUpdate.pullUpdate($refs.slideUpdate.showAlert,$event)"
-  >
-    <slide-update ref="slideUpdate"></slide-update>
+  <div class="search-main">
   	<router-link :to="{name:'interesting'}">
   		<section class="search-item">
     		<p class="search-icon"><img src="~@/assets/images/search/one.png" alt=""></p>
@@ -31,12 +26,12 @@
     </router-link>
   </div>
 </template>
+
+
 <script>
-import SlideUpdate from '@/components/slideUpdate.vue'
 export default {
   name: 'searchPage',
   components:{
-    SlideUpdate
   },
   created() {
   	this.$store.dispatch('inSearch');

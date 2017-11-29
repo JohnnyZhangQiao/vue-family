@@ -52,9 +52,6 @@ export default {
         }.bind(this),8);
         window.event? window.event.cancelBubble = true : e.stopPropagation();
       }
-    },
-    showAlert: function() {
-      alert('刷新成功')
     }
   },
 }

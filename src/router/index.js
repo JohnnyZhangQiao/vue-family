@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-//注入的页面
-import index from '@/views/index/index.vue'
-import pushPage from '@/views/index/push.vue'
-import localPage from '@/views/index/local.vue'
-import searchPage from '@/views/index/search.vue'
-import myPage from '@/views/index/my.vue'
-import interesting from '@/views/interesting.vue'
+//异步注入的页面
+const index = r => require.ensure([], () => r(require('@/views/index/index.vue')), 'index')
+const pushPage = r => require.ensure([], () => r(require('@/views/index/push.vue')), 'push')
+const localPage = r => require.ensure([], () => r(require('@/views/index/local.vue')), 'local')
+const searchPage = r => require.ensure([], () => r(require('@/views/index/search.vue')), 'search')
+const myPage = r => require.ensure([], () => r(require('@/views/index/my.vue')), 'my')
+const interesting = r => require.ensure([], () => r(require('@/views/interesting.vue')), 'interesting')
 
 Vue.use(Router)
 
