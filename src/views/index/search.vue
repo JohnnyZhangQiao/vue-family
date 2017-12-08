@@ -35,10 +35,19 @@ export default {
   },
   created() {
   	this.$store.dispatch('inSearch');
+    let aaa = [{
+      path: '/aaa',
+      name: 'aaa',
+      component: (resolve) => require(['@/views/index/aaa.vue'], resolve)
+    }];
+    this.$router.addRoutes(aaa)
   },
   data() {
   	return {
   	}
+  },
+  activated() {
+    console.log(this.$router)
   },
   methods: {
   }

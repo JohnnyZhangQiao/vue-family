@@ -7,6 +7,7 @@ const pushPage = r => require.ensure([], () => r(require('@/views/index/push.vue
 const localPage = r => require.ensure([], () => r(require('@/views/index/local.vue')), 'local')
 const searchPage = r => require.ensure([], () => r(require('@/views/index/search.vue')), 'search')
 const myPage = r => require.ensure([], () => r(require('@/views/index/my.vue')), 'my')
+const aaa = r => require.ensure([], () => r(require('@/views/index/aaa.vue')), 'aaa')
 const interesting = r => require.ensure([], () => r(require('@/views/interesting.vue')), 'interesting')
 
 Vue.use(Router)
@@ -42,7 +43,7 @@ export default new Router({
           }
         },
         {
-          path: 'search',
+          path: 'search', 
           name: 'search',
           component: searchPage
         },
